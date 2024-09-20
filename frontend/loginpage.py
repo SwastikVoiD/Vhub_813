@@ -1,15 +1,27 @@
 import customtkinter as ctk
 from tkinter import messagebox
 from PIL import Image, ImageTk
+import homepage
 
 def switch_frame(frame):
     frame.tkraise()
 
 def check_password(event=None):
-    print(entry_username.get())
-    print(entry_password.get())
-    entry_username.delete(0, ctk.END)
-    entry_password.delete(0, ctk.END)
+    user = entry_username.get()
+    pwd = entry_password.get()
+    if user == 'hello' and pwd == 'abcd':
+        try:
+            homepage.homepage()  
+            entry_username.delete(0, ctk.END)
+            entry_password.delete(0, ctk.END)
+        except Exception as e:
+            print(f"Error during homepage switch: {e}")
+    else:
+        messagebox.showinfo('Error', 'Passwords do not match')
+        entry_username.delete(0, ctk.END)
+        entry_password.delete(0, ctk.END)
+
+
 
 def toggle_password(entry, button, is_visible):
     if is_visible:

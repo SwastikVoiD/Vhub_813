@@ -7,7 +7,6 @@ def notice(x,y):
         y.insert(tk.END,f"{i+1}) {x}\n")
     y.config(state='disabled')
 
-
 root=tk.Tk()
 root.title("Notice Board")
 root.configure(bg='lightgrey')

@@ -52,4 +52,3 @@ def forum(a):
 
     root.mainloop()
 
-forum('asd')

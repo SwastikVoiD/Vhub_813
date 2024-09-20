@@ -1,5 +1,7 @@
 import customtkinter as ctk
 import time
+import faq
+import contact
 
 def update_time():
     current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
@@ -33,6 +35,8 @@ main_content.pack(side=ctk.RIGHT, expand=True, fill=ctk.BOTH)
 main_label = ctk.CTkLabel(main_content, text="VHub", fg_color='white', text_color='black', width=10, height=2, font=('Helvetica', 40, 'bold'))
 main_label.pack(pady=(20, 0))
 
+slogan_label = ctk.CTkLabel(main_content, text="A Place to Connect", fg_color='white', text_color='black', width=10, height=2, font=('Helvetica', 30, 'bold'))
+slogan_label.pack(pady=(20,0))
 # Server Time
 server_time_label = ctk.CTkLabel(button_frame, text="Server Time:", fg_color='lightgrey', text_color='black', font=('Arial', 16))
 server_time_label.pack(pady=(15, 0))
@@ -43,10 +47,23 @@ current_time_label.pack(pady=(0, 15))
 update_time()
 
 # Buttons
-buttons = ["Academics", "Services", "Forums", "FAQ", "Contact", "Home Button"]
-for button_text in buttons:
-    btn = ctk.CTkButton(button_frame, text=button_text)
-    btn.pack(pady=15)
+academics_button = ctk.CTkButton(button_frame, text="Academics")
+academics_button.pack(pady=10)
+
+services_button = ctk.CTkButton(button_frame, text="Services")
+services_button.pack(pady=10)
+
+forums_button = ctk.CTkButton(button_frame, text="Forums")
+forums_button.pack(pady=10)
+
+faq_button = ctk.CTkButton(button_frame, text="FAQ",command=faq.faq)
+faq_button.pack(pady=10)
+
+contact_button = ctk.CTkButton(button_frame, text="Contact",command=contact.contact)
+contact_button.pack(pady=10)
+
+home_button = ctk.CTkButton(button_frame, text="Home Button")
+home_button.pack(pady=10)
 
 # Notice Board Section
 board_label = ctk.CTkLabel(main_content, text="Notice Board", font=("Arial", 30, 'bold'), fg_color='white',text_color='black')

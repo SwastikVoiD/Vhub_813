@@ -11,7 +11,7 @@ def check_password(event=None):
     pwd = entry_password.get()
     if user == 'hello' and pwd == 'abcd':
         try:
-            homepage.homepage()  
+            homepage.homepage(user)  
             entry_username.delete(0, ctk.END)
             entry_password.delete(0, ctk.END)
         except Exception as e:

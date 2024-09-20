@@ -24,9 +24,6 @@ def vlx():
         item = entry_search_item.get()
         print([item, categories_selected])
 
-    ctk.set_appearance_mode("System")  # or "Dark" or "Light"
-    ctk.set_default_color_theme("blue")  # Set the color theme
-
     root = ctk.CTk()
     root.configure(fg_color='lightgrey')
     root.geometry("1200x800")
@@ -39,7 +36,10 @@ def vlx():
     for frame in (search_frame, add_frame, main_frame):
         frame.grid(row=0, column=0, sticky="nsew")
 
-    selected_option = ctk.StringVar(value="Choose Category")
+    # Initialize global variable
+    global categories_selected
+    categories_selected = "Choose Category"
+    selected_option = ctk.StringVar(value=categories_selected)
     categories = ["Electronics", "Stationary", "Sports", "Fashion", "Foods and Beverages"]
 
     # Add Item Frame
@@ -98,3 +98,6 @@ def vlx():
 
     switch_frame(main_frame)
     root.mainloop()
+
+# Call the vlx function to run the application
+vlx()

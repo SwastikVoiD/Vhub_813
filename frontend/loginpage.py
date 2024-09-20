@@ -37,7 +37,7 @@ def createaccount():
     else:
         switch_frame(page2_frame)
     x=True
-    
+
 
 # Initialize the CustomTkinter main window
 ctk.set_appearance_mode("System")  # or "Dark" or "Light"
@@ -163,6 +163,7 @@ back_button = ctk.CTkButton(page2_frame, text='Back', command=lambda: switch_fra
 back_button.pack(pady=20)
 
 submit_page2_button = ctk.CTkButton(page2_frame, text='Create Account', command=createaccount, width=20, height=2, border_width=0, font=('Comic Sans MS', 14))
-submit_page2_button.pack(pady=20)
+submit_page2_button.pack()
+
 switch_frame(login_frame)
 root.mainloop()

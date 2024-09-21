@@ -37,14 +37,11 @@ def forum(regno):
     textbox = ctk.CTkTextbox(root, width=800, height=600)
     textbox.place(x=50, y=150)
 
-
     update_textbox()
 
-    # Entry field for new post content
     content_entry = ctk.CTkEntry(root, placeholder_text="Enter post content", width=250)
     content_entry.place(x=900, y=150)
 
-    # Button to add new post
     add_button = ctk.CTkButton(root, text="Add Post", command=lambda: add_post(regno))
     add_button.place(x=900, y=190)
 

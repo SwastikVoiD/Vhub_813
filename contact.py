@@ -2,22 +2,18 @@ import sql_commands
 import customtkinter as ctk
 
 def contact():
-    # Initialize the main window
     root = ctk.CTk()
     root.attributes('-fullscreen',True)
     root.title("Hostel Contacts")
     root.geometry("800x600")
 
-    # Create a main frame for the scrollable content
     main_frame = ctk.CTkFrame(root)
     main_frame.pack(fill='both', expand=True)
 
-    # Create a canvas for scrolling
     canvas = ctk.CTkCanvas(main_frame)
     scrollbar = ctk.CTkScrollbar(main_frame, orientation="vertical", command=canvas.yview)
     scrollable_frame = ctk.CTkFrame(canvas)
 
-    # Configure the scrollable frame
     scrollable_frame.bind(
         "<Configure>",
         lambda e: canvas.configure(scrollregion=canvas.bbox("all"))

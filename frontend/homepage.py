@@ -26,6 +26,7 @@ def homepage(a):
     root.geometry("1200x800")
     root.grid_rowconfigure(0, weight=1)
     root.grid_columnconfigure(0, weight=1)
+    
 
     button_frame = ctk.CTkFrame(root, fg_color='lightgrey')
     button_frame.pack(side=ctk.LEFT, fill=ctk.Y)
@@ -50,8 +51,8 @@ def homepage(a):
     update_time(current_time_label)
 
     # Buttons
-    academics_button = ctk.CTkButton(button_frame, text="Academics")
-    academics_button.pack(pady=10)
+    scheduling_button = ctk.CTkButton(button_frame, text="Scheduling")
+    scheduling_button.pack(pady=10)
 
     services_button = ctk.CTkButton(button_frame, text="Services",command=services.service)
     services_button.pack(pady=10)

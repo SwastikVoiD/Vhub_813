@@ -1,0 +1,312 @@
+Sl.No	Class Group	Course	L T P J C	Category	Course Option	Class Id	Slot/ Venue	Faculty Details	Registered / Updated Date & Time	Attendance Date/ Type	Status & Ref. No.
+1
+
+General Freshers
+
+BCSE101E - Computer Programming: Python
+
+( Embedded Theory )
+
+1 0 0 0 1.0
+
+Foundation Core	
+Regular
+
+VL2024250107610
+
+TAA2 -
+
+
+MB306
+
+SIVAPRASAD DARLA -
+
+
+SMEC
+
+25-Jul-2024 16:15
+
+26-Jul-2024
+- Manual
+
+Registered and Approved
+2
+
+General Freshers
+
+BCSE101E - Computer Programming: Python
+
+( Embedded Lab )
+
+0 0 4 0 2.0
+
+Foundation Core	
+Regular
+
+VL2024250107713
+
+L21+L22+L27+L28 -
+
+
+MB108
+
+SIVAPRASAD DARLA -
+
+
+SMEC
+
+25-Jul-2024 16:15
+
+26-Jul-2024
+- Manual
+
+Registered and Approved
+3
+
+General Freshers
+
+BMAT101L - Calculus
+
+( Theory Only )
+
+3 0 0 0 3.0
+
+Foundation Core	
+Regular
+
+VL2024250106372
+
+G2+TG2 -
+
+
+MB306
+
+NIRANJAN HARI -
+
+
+SAS
+
+25-Jul-2024 16:15
+
+26-Jul-2024
+- Manual
+
+Registered and Approved
+4
+
+General Freshers
+
+BMAT101P - Calculus Lab
+
+( Lab Only )
+
+0 0 2 0 1.0
+
+Foundation Core	
+Regular
+
+VL2024250106729
+
+L1+L2 -
+
+
+MB109
+
+NIRANJAN HARI -
+
+
+SAS
+
+25-Jul-2024 16:15
+
+26-Jul-2024
+- Manual
+
+Registered and Approved
+5
+
+General Freshers
+
+BMEE101N - Introduction to Engineering
+
+( Project )
+
+0 0 0 0 1.0
+
+Non-graded Core Requirement	
+Regular
+
+VL2024250105897
+
+NIL -
+
+
+NIL
+
+ACADEMICS -
+
+
+ACAD
+
+25-Jul-2024 16:15
+
+26-Jul-2024
+- Manual
+
+Registered and Approved
+6
+
+General Freshers
+
+BMEE102P - Engineering Design Visualisation Lab
+
+( Lab Only )
+
+0 0 4 0 2.0
+
+Foundation Core	
+Regular
+
+VL2024250105898
+
+L3+L4+L7+L8 -
+
+
+MB111
+
+SAMPATH KUMAR T -
+
+
+SMEC
+
+25-Jul-2024 16:15
+
+26-Jul-2024
+- Manual
+
+Registered and Approved
+7
+
+General Freshers
+
+BMEE203L - Engineering Thermodynamics
+
+( Theory Only )
+
+2 1 0 0 3.0
+
+Discipline Core	
+Regular
+
+VL2024250105899
+
+B2+TB2 -
+
+
+MB306
+
+MOHAN C.G -
+
+
+SMEC
+
+25-Jul-2024 16:15
+
+26-Jul-2024
+- Manual
+
+Registered and Approved
+8
+
+General Freshers
+
+BPHY101L - Engineering Physics
+
+( Theory Only )
+
+3 0 0 0 3.0
+
+Foundation Core	
+Regular
+
+VL2024250106006
+
+D2+TD2 -
+
+
+MB306
+
+AMIT ROY -
+
+
+SAS
+
+25-Jul-2024 16:15
+
+26-Jul-2024
+- Manual
+
+Registered and Approved
+9
+
+General Freshers
+
+BPHY101P - Engineering Physics Lab
+
+( Lab Only )
+
+0 0 2 0 1.0
+
+Foundation Core	
+Regular
+
+VL2024250107268
+
+L25+L26 -
+
+
+TT436
+
+AMIT ROY -
+
+
+SAS
+
+25-Jul-2024 16:15
+
+26-Jul-2024
+- Manual
+
+Registered and Approved
+10
+
+General Freshers
+
+BSTS201P - Qualitative Skills Practice I
+
+( Soft Skill )
+
+0 0 3 0 1.5
+
+Foundation Core	
+Regular
+
+VL2024250105602
+
+F2+TF2 -
+
+
+MB306
+
+SIXPHRASE (APT) -
+
+
+SSL
+
+25-Jul-2024 16:15
+
+26-Jul-2024
+- Manual
+
+Registered and Approved
+Total Number Of Credits: 18.5

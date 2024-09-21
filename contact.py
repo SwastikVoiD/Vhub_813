@@ -28,12 +28,14 @@ def contact():
     # Pack the canvas and scrollbar
     canvas.pack(side="left", fill="both", expand=True)
     scrollbar.pack(side="right", fill="y")
-
-    contacts = sql_commands.contact_sql()
-    for idx, (hostel_type, title, name, email, phone) in enumerate(contacts):
-        ctk.CTkLabel(scrollable_frame, text=f"{hostel_type} - {title}", font=("Comic Sans MS", 12, "bold")).grid(row=idx, column=0, padx=5, pady=2, sticky='w')
-        ctk.CTkLabel(scrollable_frame, text=name).grid(row=idx, column=1, padx=5, pady=2, sticky='w')
-        ctk.CTkLabel(scrollable_frame, text=email).grid(row=idx, column=2, padx=5, pady=2, sticky='w')
-        ctk.CTkLabel(scrollable_frame, text=phone).grid(row=idx, column=3, padx=5, pady=2, sticky='w')
+    try:
+        contacts = sql_commands.contact_sql()
+        for idx, (hostel_type, title, name, email, phone) in enumerate(contacts):
+            ctk.CTkLabel(scrollable_frame, text=f"{hostel_type} - {title}", font=("Comic Sans MS", 12, "bold")).grid(row=idx, column=0, padx=5, pady=2, sticky='w')
+            ctk.CTkLabel(scrollable_frame, text=name).grid(row=idx, column=1, padx=5, pady=2, sticky='w')
+            ctk.CTkLabel(scrollable_frame, text=email).grid(row=idx, column=2, padx=5, pady=2, sticky='w')
+            ctk.CTkLabel(scrollable_frame, text=phone).grid(row=idx, column=3, padx=5, pady=2, sticky='w')
+    except Exception as err:
+        print(f"Error: {err}")
     root.mainloop()
 

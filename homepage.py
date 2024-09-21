@@ -78,4 +78,3 @@ def homepage(a,b):
     notice(general_notices, general_text)
 
     root.mainloop()
-homepage('24BIA0019','ritesh.chaudhary@example.com')

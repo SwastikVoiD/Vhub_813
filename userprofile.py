@@ -21,11 +21,11 @@ def changepassword():
     root1.grid_rowconfigure(0, weight=1)
     root1.grid_columnconfigure(0, weight=1)
 
-    entry_current_password=ctk.CTkEntry(root1,placeholder_text="Enter Current Password",width=100)
+    entry_current_password=ctk.CTkEntry(root1,placeholder_text="Enter Current Password",width=300)
     entry_current_password.pack(pady=20)
-    entry_new_password=ctk.CTkEntry(root1,placeholder_text="Enter New Password",width=100)
+    entry_new_password=ctk.CTkEntry(root1,placeholder_text="Enter New Password",width=300)
     entry_new_password.pack(pady=20)
-    confirm_new_password=ctk.CTkEntry(root1,placeholder_text="Confirm New Password",width=100)
+    confirm_new_password=ctk.CTkEntry(root1,placeholder_text="Confirm New Password",width=300)
     confirm_new_password.pack(pady=20)
     ctk.CTkButton(root1,text="Change Password",command=lambda:checkpassword(entry_current_password.get(),entry_new_password.get(),confirm_new_password.get())).pack(pady=20)
     root1.mainloop()
@@ -154,3 +154,5 @@ def userprofile(regno, email):
         text.insert("end", "No data found or an error occurred.\n")
     
     root.mainloop()
+
+userprofile('24BIA0019','ritesh.chaudhary@example.com')

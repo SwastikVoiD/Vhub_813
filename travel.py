@@ -102,8 +102,6 @@ def travelpool():
     check_button = ctk.CTkButton(root, text="Check Existing Details", command=check_details)
     check_button.pack(pady=10)
 
-    back_button=ctk.CTkButton(root,text="Back",command=root.destroy)
-    back_button.place(x=10)
+    ctk.CTkButton(root,text="Back",command=root.destroy).place(x=10,y=10)
 
     root.mainloop()
-

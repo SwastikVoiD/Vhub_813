@@ -45,8 +45,7 @@ def forum(regno):
     add_button = ctk.CTkButton(root, text="Add Post", command=lambda: add_post(regno))
     add_button.place(x=900, y=190)
 
-    back_button=ctk.CTkButton(root,text="Back",command=root.destroy)
-    back_button.pack(pady=5)
+    ctk.CTkButton(root,text="Back",command=root.destroy).place(x=10,y=10)
     root.mainloop()
 
 

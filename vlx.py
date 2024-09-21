@@ -86,7 +86,6 @@ def vlx():
     entry_add_desc.grid(pady=5, padx=15)
 
     ctk.CTkButton(add_frame, text="Submit", command=submitadd).grid(pady=10)
-    ctk.CTkButton(add_frame, text="Back", command=lambda: switch_frame(root)).grid(pady=10)
 
     ctk.CTkLabel(search_frame, text="Search Item", text_color='black', font=('Comic Sans MS', 17, 'bold')).grid(pady=10)
     ctk.CTkLabel(search_frame, text="Item Name", text_color='black', font=('Arial', 14)).grid(pady=10)
@@ -107,14 +106,13 @@ def vlx():
         checkbox.configure(text_color='black')
 
     ctk.CTkButton(search_frame, text="Submit", command=submitsearch).grid(pady=10)
-    ctk.CTkButton(search_frame, text="Back", command=lambda: switch_frame(root)).grid(pady=10)
 
-    main_label = ctk.CTkLabel(root, text="WELCOME TO VLX", text_color='black', font=('Algerian', 30))
-    main_label.grid(row=0, column=0, columnspan=2, pady=20)
+    ctk.CTkLabel(root, text="WELCOME TO VLX", text_color='black', font=('Algerian', 30)).grid(row=0, column=0, columnspan=2, pady=20)
+    ctk.CTkButton(root, text="Back", command=root.destroy).place(x=10,y=10)
+
 
     root.grid_rowconfigure(1, weight=1)
     root.grid_columnconfigure(0, weight=1)
     root.grid_columnconfigure(1, weight=1)
 
     root.mainloop()
-

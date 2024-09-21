@@ -3,6 +3,7 @@ import time
 import faq
 import contact
 import services
+import forum
 
 def update_time(current_time_label):
     current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
@@ -16,16 +17,16 @@ def notice(notices, text_widget):
         text_widget.insert(ctk.END, f"{i + 1}) {notice}\n")
     text_widget.configure(state='disabled')
 
-def homepage():
+def homepage(a):
     # Initialize the CustomTkinter main window
-    ctk.set_appearance_mode("System")  # Use "Dark" or "Light"
-    ctk.set_default_color_theme("blue")  # Set the color theme
-
-    root = ctk.CTk()  # Use CustomTkinter's CTk instead of Tk
+    global regno
+    regno=a
+    root = ctk.CTk()
     root.title('Home Page')
     root.geometry("1200x800")
     root.grid_rowconfigure(0, weight=1)
     root.grid_columnconfigure(0, weight=1)
+    
 
     button_frame = ctk.CTkFrame(root, fg_color='lightgrey')
     button_frame.pack(side=ctk.LEFT, fill=ctk.Y)
@@ -50,13 +51,13 @@ def homepage():
     update_time(current_time_label)
 
     # Buttons
-    academics_button = ctk.CTkButton(button_frame, text="Academics")
-    academics_button.pack(pady=10)
+    scheduling_button = ctk.CTkButton(button_frame, text="Scheduling")
+    scheduling_button.pack(pady=10)
 
     services_button = ctk.CTkButton(button_frame, text="Services",command=services.service)
     services_button.pack(pady=10)
 
-    forums_button = ctk.CTkButton(button_frame, text="Forums")
+    forums_button = ctk.CTkButton(button_frame, text="Forums",command=forum.forum(regno))
     forums_button.pack(pady=10)
 
     faq_button = ctk.CTkButton(button_frame, text="FAQ", command=faq.faq)

@@ -36,12 +36,12 @@ def login(uname, cred):
         else:
             return False
 def vlx_sql_submitadd(item,selected,price,desc,timestamp):
-    insert_query = "INSERT INTO items (item_name, category, price, description, timestamp) VALUES (%s, %s, %s, %s, %s)"
+    insert_query = "INSERT INTO olx (item, category, price, description, timestamp) VALUES (%s, %s, %s, %s, %s)"
     cursor.execute(insert_query, (item, selected, float(price), desc, timestamp))
-    smyql.commit()
+    sql.commit()
 
 def vlx_sql_submitsearch(item,selected):
-    search_query = "SELECT * FROM items WHERE item_name LIKE %s AND category = %s"
+    search_query = "SELECT * FROM olx WHERE item LIKE %s AND category = %s"
     cursor.execute(search_query, (f"%{item}%", selected))
     results = cursor.fetchall()
     return results

@@ -66,9 +66,6 @@ def homepage(a):
     contact_button = ctk.CTkButton(button_frame, text="Contact", command=contact.contact)
     contact_button.pack(pady=10)
 
-    home_button = ctk.CTkButton(button_frame, text="Home Button")
-    home_button.pack(pady=10)
-
     # Notice Board Section
     board_label = ctk.CTkLabel(main_content, text="Notice Board", font=("Arial", 30, 'bold'), fg_color='white', text_color='black')
     board_label.pack(pady=(20, 0))

@@ -42,9 +42,11 @@ def vlx():
 
         if results:
             for row in results:
-                print(row)  
+                a=messagebox.showinfo("Item Found",f"Item Name: {row[0]}, Category: {row[1]}, Price: {row[2]}, Description: {row[3]}") 
+                a.pack() 
         else:
             messagebox.showinfo("Search Result", "No items found.")
+        selected_category.set(None)
 
     # Create main window
     root = ctk.CTk()
@@ -124,3 +126,4 @@ def vlx():
 
     # Run the application
     root.mainloop()
+vlx()

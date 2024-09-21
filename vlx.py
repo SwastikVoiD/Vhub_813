@@ -126,4 +126,4 @@ def vlx():
 
     # Run the application
     root.mainloop()
-vlx()
+

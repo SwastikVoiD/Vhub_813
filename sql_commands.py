@@ -35,6 +35,7 @@ def login(uname, cred):
             return True
         else:
             return False
+    
 def vlx_sql_submitadd(item,selected,price,desc,timestamp):
     insert_query = "INSERT INTO olx (item, category, price, description, timestamp) VALUES (%s, %s, %s, %s, %s)"
     cursor.execute(insert_query, (item, selected, float(price), desc, timestamp))
@@ -53,3 +54,12 @@ def contact_sql():
     cursor.execute("SELECT hostel_type, title, name, email, phone FROM hostel_contacts")
     contacts = cursor.fetchall()
     return contacts
+def travel_submit(destination,date,time,transport,people):
+    query = "INSERT INTO travel_details (destination, travel_date, travel_time, transport, number_of_people) VALUES (%s, %s, %s, %s, %s)"
+    values = (destination, date, time, transport, int(people))
+    sql.commit()
+    return True
+def travel_check(destination,date):
+    query = "SELECT * FROM travel_details WHERE destination = %s AND travel_date = %s "
+    values = (destination, date)
+    results = cursor.fetchall()

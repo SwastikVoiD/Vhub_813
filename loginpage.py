@@ -15,7 +15,7 @@ def check_password(event=None):
             homepage.homepage(user)  
             entry_username.delete(0, ctk.END)
             entry_password.delete(0, ctk.END)
-            root.destroy()
+            root.after(100, root.destroy)
         except Exception as e:
             print(f"Error during homepage switch: {e}")
     else:

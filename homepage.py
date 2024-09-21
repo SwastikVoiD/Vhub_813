@@ -23,8 +23,9 @@ def homepage(a,b):
     regno,email=a,b
     root = ctk.CTk()
     root.title('Home Page')
-    root.geometry("1200x800")
-    root.attributes('-fullscreen',True)
+    root.state('normal')
+    root.geometry(f"{root.winfo_screenwidth()}x{root.winfo_screenheight()}+0+0")
+    root.configure(fg_color='black')
 
     root.grid_rowconfigure(0, weight=1)
     root.grid_columnconfigure(0, weight=1)
@@ -49,14 +50,14 @@ def homepage(a,b):
 
     update_time(current_time_label)
 
-    ctk.CTkButton(button_frame, text="Scheduling").pack(pady=10)
     ctk.CTkButton(button_frame, text="Services",command=services.service).pack(pady=10)
     ctk.CTkButton(button_frame, text="Forums",command=lambda:forum.forum(regno)).pack(pady=10)
     ctk.CTkButton(button_frame, text="FAQ", command=faq.faq).pack(pady=10)
     ctk.CTkButton(button_frame, text="Contact", command=contact.contact).pack(pady=10)
     ctk.CTkButton(button_frame, text="User Profile",command=lambda:userprofile.userprofile(regno,email)).pack(pady=10)
-    ctk.CTkLabel(main_content, text="Notice Board", font=("Arial", 30, 'bold'), fg_color='white', text_color='black').pack(pady=(20, 0))
+    ctk.CTkButton(button_frame, text="Quit Window",command=root.destroy).pack(pady=10)
 
+    ctk.CTkLabel(main_content, text="Notice Board", font=("Arial", 30, 'bold'), fg_color='white', text_color='black').pack(pady=(20, 0))
     section_frame = ctk.CTkFrame(main_content, fg_color='white')
     section_frame.pack(pady=(0, 20), fill=ctk.BOTH, expand=True)
 
@@ -77,4 +78,4 @@ def homepage(a,b):
     notice(general_notices, general_text)
 
     root.mainloop()
-
+homepage('24BIA0019','ritesh.chaudhary@example.com')

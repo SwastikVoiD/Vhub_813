@@ -6,35 +6,34 @@ from tkcalendar import Calendar
 def travelpool():
     root = ctk.CTk()
     root.title("Travel Pool")
-    root.geometry("800x600")
-    root.attributes('-fullscreen',True)
-
-    root.configure(fg_color='white')
+    root.state('normal')
+    root.geometry(f"{root.winfo_screenwidth()}x{root.winfo_screenheight()}+0+0")
+    root.configure(fg_color='black')
     root.grid_rowconfigure(0, weight=1)
     root.grid_columnconfigure(0, weight=1)
 
     # Travel Destination
-    ctk.CTkLabel(root, text="Travel Destination", text_color='black', font=('Comic Sans MS', 24)).pack(pady=10)
+    ctk.CTkLabel(root, text="Travel Destination", text_color='white', font=('Comic Sans MS', 24)).pack(pady=10)
     entry_location = ctk.CTkEntry(root, width=300, font=('Comic Sans MS', 14))
     entry_location.pack(pady=5)
 
     # Travel Date
-    ctk.CTkLabel(root, text="Travel Date", text_color='black', font=('Comic Sans MS', 24)).pack(pady=10)
+    ctk.CTkLabel(root, text="Travel Date", text_color='white', font=('Comic Sans MS', 24)).pack(pady=10)
     calendar = Calendar(root, selectmode='day', date_pattern='yyyy-mm-dd')
     calendar.pack(pady=5)
 
     # Travel Time
-    ctk.CTkLabel(root, text="Travel Time (HH:MM)", text_color='black', font=('Comic Sans MS', 24)).pack(pady=10)
+    ctk.CTkLabel(root, text="Travel Time (HH:MM)", text_color='white', font=('Comic Sans MS', 24)).pack(pady=10)
     entry_time = ctk.CTkEntry(root, width=300, font=('Arial', 14))
     entry_time.pack(pady=5)
 
     # Transport Medium
-    ctk.CTkLabel(root, text="Transport Medium (e.g., Car, Bus)", text_color='black', font=('Comic Sans MS', 24)).pack(pady=10)
+    ctk.CTkLabel(root, text="Transport Medium (e.g., Car, Bus)", text_color='white', font=('Comic Sans MS', 24)).pack(pady=10)
     entry_transport = ctk.CTkEntry(root, width=300, font=('Arial', 14))
     entry_transport.pack(pady=5)
 
     # Number of People
-    ctk.CTkLabel(root, text="Number of People", text_color='black', font=('Comic Sans MS', 24)).pack(pady=10)
+    ctk.CTkLabel(root, text="Number of People", text_color='white', font=('Comic Sans MS', 24)).pack(pady=10)
     entry_people = ctk.CTkEntry(root, width=300, font=('Arial', 14))
     entry_people.pack(pady=5)
 

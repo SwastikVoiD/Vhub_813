@@ -6,12 +6,11 @@ def service():
     root = ctk.CTk()
     
     root.title("Service Menu")
-    root.geometry("800x600")
-    root.attributes('-fullscreen',True)
+    root.state('normal')
+    root.geometry(f"{root.winfo_screenwidth()}x{root.winfo_screenheight()}+0+0")
+    root.configure(fg_color='black')
 
-    root.configure(fg_color='white')
-
-    label = ctk.CTkLabel(root, text="Select a Service", text_color='black', font=('Comic Sans MS', 24))
+    label = ctk.CTkLabel(root, text="Select a Service", text_color='white', font=('Comic Sans MS', 24))
     label.pack(pady=20)
 
     travelpool_button = ctk.CTkButton(root, text="Travel Pool", command=travel.travelpool)

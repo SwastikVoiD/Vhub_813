@@ -45,13 +45,13 @@ def vlx():
             messagebox.showinfo("Search Result", "No items found.")
 
     root = ctk.CTk()
-    root.configure(fg_color='white')
-    root.geometry("1200x800")
-    root.attributes('-fullscreen', True)
+    root.state('normal')
+    root.geometry(f"{root.winfo_screenwidth()}x{root.winfo_screenheight()}+0+0")
+    root.configure(fg_color='black')
     root.title('VLX')
 
-    search_frame = ctk.CTkFrame(root, fg_color='lightgrey')
-    add_frame = ctk.CTkFrame(root, fg_color='lightgrey')
+    search_frame = ctk.CTkFrame(root, fg_color='black')
+    add_frame = ctk.CTkFrame(root, fg_color='black')
 
     search_frame.grid(row=1, column=0, padx=20, pady=20, sticky='nsew')
     add_frame.grid(row=1, column=1, padx=20, pady=20, sticky='nsew')
@@ -59,12 +59,12 @@ def vlx():
     categories = ["Electronics", "Stationary", "Sports", "Fashion", "Foods and Beverages"]
     selected_category = ctk.StringVar(value=None)
 
-    ctk.CTkLabel(add_frame, text="Add Item", text_color='black', font=('Comic Sans MS', 17, 'bold')).grid(pady=10)
-    ctk.CTkLabel(add_frame, text='Item Name', text_color='black', font=('Arial', 14)).grid(pady=10)
+    ctk.CTkLabel(add_frame, text="Add Item", text_color='white', font=('Comic Sans MS', 17, 'bold')).grid(pady=10)
+    ctk.CTkLabel(add_frame, text='Item Name', text_color='white', font=('Arial', 14)).grid(pady=10)
     entry_add_item = ctk.CTkEntry(add_frame, width=300, font=('Arial', 14))
     entry_add_item.grid(pady=5, padx=15)
 
-    ctk.CTkLabel(add_frame, text='Item Category', text_color='black', font=('Arial', 14)).grid(pady=10)
+    ctk.CTkLabel(add_frame, text='Item Category', text_color='white', font=('Arial', 14)).grid(pady=10)
     for category in categories:
         checkbox = ctk.CTkCheckBox(
             add_frame, 
@@ -75,24 +75,24 @@ def vlx():
             command=lambda cat=category: toggle_category(cat)
         )
         checkbox.grid(sticky='w')
-        checkbox.configure(text_color='black')
+        checkbox.configure(text_color='white')
 
-    ctk.CTkLabel(add_frame, text='Item Price', text_color='black', font=('Arial', 14)).grid(pady=10)
+    ctk.CTkLabel(add_frame, text='Item Price', text_color='white', font=('Arial', 14)).grid(pady=10)
     entry_add_price = ctk.CTkEntry(add_frame, width=300, font=('Arial', 14))
     entry_add_price.grid(pady=5, padx=15)
 
-    ctk.CTkLabel(add_frame, text='Item Description', text_color='black', font=('Arial', 14)).grid(pady=10)
+    ctk.CTkLabel(add_frame, text='Item Description', text_color='white', font=('Arial', 14)).grid(pady=10)
     entry_add_desc = ctk.CTkEntry(add_frame, width=300, font=('Arial', 14))
     entry_add_desc.grid(pady=5, padx=15)
 
     ctk.CTkButton(add_frame, text="Submit", command=submitadd).grid(pady=10)
 
-    ctk.CTkLabel(search_frame, text="Search Item", text_color='black', font=('Comic Sans MS', 17, 'bold')).grid(pady=10)
-    ctk.CTkLabel(search_frame, text="Item Name", text_color='black', font=('Arial', 14)).grid(pady=10)
+    ctk.CTkLabel(search_frame, text="Search Item", text_color='white', font=('Comic Sans MS', 17, 'bold')).grid(pady=10)
+    ctk.CTkLabel(search_frame, text="Item Name", text_color='white', font=('Arial', 14)).grid(pady=10)
     entry_search_item = ctk.CTkEntry(search_frame, width=300, font=("Arial", 14))
     entry_search_item.grid(pady=5, padx=15)
 
-    ctk.CTkLabel(search_frame, text='Item Category', text_color='black', font=('Arial', 14)).grid(pady=10)
+    ctk.CTkLabel(search_frame, text='Item Category', text_color='white', font=('Arial', 14)).grid(pady=10)
     for category in categories:
         checkbox = ctk.CTkCheckBox(
             search_frame, 
@@ -103,11 +103,11 @@ def vlx():
             command=lambda cat=category: toggle_category(cat)
         )
         checkbox.grid(sticky='w')
-        checkbox.configure(text_color='black')
+        checkbox.configure(text_color='white')
 
     ctk.CTkButton(search_frame, text="Submit", command=submitsearch).grid(pady=10)
 
-    ctk.CTkLabel(root, text="WELCOME TO VLX", text_color='black', font=('Algerian', 30)).grid(row=0, column=0, columnspan=2, pady=20)
+    ctk.CTkLabel(root, text="WELCOME TO VLX", text_color='white', font=('Algerian', 30)).grid(row=0, column=0, columnspan=2, pady=20)
     ctk.CTkButton(root, text="Back", command=root.destroy).place(x=10,y=10)
 
 

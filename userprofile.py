@@ -125,8 +125,8 @@ def userprofile(regno, email):
     data = sql_commands.getalldata(regno, email)
     root = ctk.CTk()
     root.title("User Profile")
-    root.geometry("1200x800")
-    root.state('zoomed')
+    root.state('normal')
+    root.geometry(f"{root.winfo_screenwidth()}x{root.winfo_screenheight()}+0+0")
     root.grid_rowconfigure(0, weight=1)
     root.grid_columnconfigure(0, weight=1)
 
@@ -137,6 +137,7 @@ def userprofile(regno, email):
 
     ctk.CTkButton(root,text="Change Password",command=changepassword).pack(pady=10)
     ctk.CTkButton(root,text="Change Details",command=change_details).pack(pady=10)
+    ctk.CTkButton(root,text="Back",command=root.destroy).place(x=10,y=10)
     if data[5]=="M":
         x,y="Male","Men"
     else:
@@ -153,5 +154,3 @@ def userprofile(regno, email):
         text.insert("end", "No data found or an error occurred.\n")
     
     root.mainloop()
-
-userprofile('24BYB0117', 'dfgahjkl')

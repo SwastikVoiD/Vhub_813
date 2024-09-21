@@ -4,7 +4,9 @@ import customtkinter as ctk
 def contact():
     root = ctk.CTk()
     root.title("Hostel Contacts")
-    root.geometry("800x600")
+    root.state('normal')
+    root.geometry(f"{root.winfo_screenwidth()}x{root.winfo_screenheight()}+0+0")
+    root.configure(fg_color='black')
 
     main_frame = ctk.CTkFrame(root)
     main_frame.pack(fill='both', expand=True)

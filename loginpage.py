@@ -65,12 +65,11 @@ root.configure(bg='lightgrey')
 root.grid_rowconfigure(0, weight=1)
 root.grid_columnconfigure(0, weight=1)
 
-# Load icons
-unhide_icon = Image.open(r"frontend\\view.png").resize((20, 20), Image.ANTIALIAS)
-unhide_icon = ImageTk.PhotoImage(unhide_icon)
+unhide_icon = Image.open("view.png").resize((20, 20), Image.LANCZOS)
+unhide_icon = ctk.CTkImage(unhide_icon)
 
-hide_icon = Image.open(r"frontend\\hide.png").resize((20, 20), Image.ANTIALIAS)
-hide_icon = ImageTk.PhotoImage(hide_icon)
+hide_icon = Image.open("hide.png").resize((20, 20), Image.LANCZOS)
+hide_icon = ctk.CTkImage(hide_icon)
 
 # Frames
 login_frame = ctk.CTkFrame(root, fg_color='lightgrey')

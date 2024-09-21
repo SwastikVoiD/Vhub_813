@@ -45,3 +45,11 @@ def vlx_sql_submitsearch(item,selected):
     cursor.execute(search_query, (f"%{item}%", selected))
     results = cursor.fetchall()
     return results
+def faq_qa():
+    cursor.execute("SELECT questions, answers FROM faq")
+    faqs = cursor.fetchall()
+    return faqs
+def contact_sql():
+    cursor.execute("SELECT hostel_type, title, name, email, phone FROM hostel_contacts")
+    contacts = cursor.fetchall()
+    return contacts

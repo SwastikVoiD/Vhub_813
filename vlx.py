@@ -124,7 +124,3 @@ def vlx():
 
     # Run the application
     root.mainloop()
-
-    # Close database connection on exit
-    cursor.close()
-    db_connection.close()

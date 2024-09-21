@@ -55,8 +55,6 @@ def createaccount():
         messagebox.showinfo('Success','Account created successfully.')
         switch_frame(login_frame)
 
-
-# Initialize the CustomTkinter main window
 ctk.set_appearance_mode("System")
 ctk.set_default_color_theme("blue")
 

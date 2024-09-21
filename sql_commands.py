@@ -63,3 +63,9 @@ def travel_check(destination,date):
     query = "SELECT * FROM travel_details WHERE destination = %s AND travel_date = %s "
     values = (destination, date)
     results = cursor.fetchall()
+def forum_add(user,content):
+    cursor.execute("INSERT INTO forum (user, content) VALUES (%s, %s)", (user, content))
+    sql.commit() 
+def forum_update():
+    cursor.execute("SELECT user, content, timestamp FROM forum")
+    return cursor.fetchall()

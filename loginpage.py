@@ -1,6 +1,6 @@
 import customtkinter as ctk
 from tkinter import messagebox
-from PIL import Image, ImageTk
+from PIL import Image
 import homepage
 import sql_commands
 

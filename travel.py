@@ -8,7 +8,7 @@ DB_CONFIG = {
     'host': 'localhost',
     'user': 'root',  # your MySQL username
     'password': 'abc+1234',  # your MySQL password
-    'database': 'travel_pool'  # your database name
+    'database': 'vhub'  # your database name
 }
 
 # Connect to the database

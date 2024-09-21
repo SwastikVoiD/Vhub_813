@@ -1,6 +1,6 @@
 import mysql.connector as smyql
 
-sql = smyql.connect(host='localhost',user='root',password='abc+1234')
+sql = smyql.connect(host='localhost',user='newuser',password='managerboi')
 cursor = sql.cursor()
 cursor.execute("CREATE DATABASE IF NOT EXISTS VHUB")
 cursor.execute("USE VHUB")
@@ -10,7 +10,7 @@ def new_user(uname, cred, fname, lname, dob, sex, hostel, roomno, phone, emergen
     try:
         
         # Check if the username exists
-        cursor.execute("SELECT username FROM user_master WHERE username = %s", (uname,))
+        cursor.execute(f"SELECT username FROM user_master WHERE username ='{uname}'")
         if cursor.fetchone() is None:
 
             # Insert the new user data
@@ -28,10 +28,20 @@ def new_user(uname, cred, fname, lname, dob, sex, hostel, roomno, phone, emergen
         print("Error:", err)
 
 def login(uname, cred):
-    cursor.execute("SELECT username, credentials from user_master where username='%s'",(uname,))
-    if cursor.fetchon() is not None:
-        A = cursor.fetchone()
-        if cred== A[1]:
+    cursor.execute(f"SELECT username, credentials from user_master where username='{uname}'")
+    result=cursor.fetchone()
+    if result is not None:
+        if cred== result[1]:
             return True
         else:
             return False
+def vlx_sql_submitadd(item,selected,price,desc,timestamp):
+    insert_query = "INSERT INTO items (item_name, category, price, description, timestamp) VALUES (%s, %s, %s, %s, %s)"
+    cursor.execute(insert_query, (item, selected, float(price), desc, timestamp))
+    smyql.commit()
+
+def vlx_sql_submitsearch(item,selected):
+    search_query = "SELECT * FROM items WHERE item_name LIKE %s AND category = %s"
+    cursor.execute(search_query, (f"%{item}%", selected))
+    results = cursor.fetchall()
+    return results

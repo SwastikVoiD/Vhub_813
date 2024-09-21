@@ -1,24 +1,9 @@
 import customtkinter as ctk
 from tkinter import messagebox
 from datetime import datetime
-import mysql.connector
+import sql_commands
 
 def vlx():
-    # Establish MySQL connection
-    db_config = {
-        'user': 'your_username',       # Replace with your MySQL username
-        'password': 'your_password',   # Replace with your MySQL password
-        'host': 'localhost',
-        'database': 'vlx_db'
-    }
-    
-    try:
-        db_connection = mysql.connector.connect(**db_config)
-        cursor = db_connection.cursor()
-    except mysql.connector.Error as err:
-        messagebox.showerror("Database Error", f"Error: {err}")
-        return
-
     def switch_frame(frame):
         frame.tkraise()
         # Reset category selection on frame switch
@@ -43,10 +28,7 @@ def vlx():
             messagebox.showerror("Error", "Invalid price. Please enter a numeric value.")
             return
         
-        # Insert item into database
-        insert_query = "INSERT INTO items (item_name, category, price, description, timestamp) VALUES (%s, %s, %s, %s, %s)"
-        cursor.execute(insert_query, (item, selected, float(price), desc, timestamp))
-        db_connection.commit()
+        sql_commands.vlx_sql_submitadd(item,selected,price,desc,timestamp)
         messagebox.showinfo("Success", "Item added successfully!")
         entry_add_item.delete(0, ctk.END)
         entry_add_price.delete(0, ctk.END)
@@ -56,13 +38,11 @@ def vlx():
         item = entry_search_item.get()
         selected = selected_category.get()
         
-        search_query = "SELECT * FROM items WHERE item_name LIKE %s AND category = %s"
-        cursor.execute(search_query, (f"%{item}%", selected))
-        results = cursor.fetchall()
+        results=sql_commands.vlx_sql_submitsearch(item,selected)
 
         if results:
             for row in results:
-                print(row)  # You can display this in a more user-friendly way if needed
+                print(row)  
         else:
             messagebox.showinfo("Search Result", "No items found.")
 

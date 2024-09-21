@@ -2,7 +2,7 @@ import customtkinter as ctk
 import time
 import faq
 import contact
-# import services
+import services
 import forum
 
 def update_time(current_time_label):
@@ -57,7 +57,7 @@ def homepage(a):
     services_button = ctk.CTkButton(button_frame, text="Services",command=services.service)
     services_button.pack(pady=10)
 
-    forums_button = ctk.CTkButton(button_frame, text="Forums",command=forum.forum(regno))
+    forums_button = ctk.CTkButton(button_frame, text="Forums",command=lambda:forum.forum(regno))
     forums_button.pack(pady=10)
 
     faq_button = ctk.CTkButton(button_frame, text="FAQ", command=faq.faq)

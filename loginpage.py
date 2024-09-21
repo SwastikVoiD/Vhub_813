@@ -1,7 +1,8 @@
 import customtkinter as ctk
 from tkinter import messagebox
-from PIL import Image, ImageTk
+from PIL import Image
 import homepage
+import sql_commands
 
 def switch_frame(frame):
     frame.tkraise()
@@ -9,12 +10,12 @@ def switch_frame(frame):
 def check_password(event=None):
     user = entry_username.get()
     pwd = entry_password.get()
-    if user == 'hello' and pwd == 'abcd':
+    if sql_commands.login(user,pwd):
         try:
             homepage.homepage(user)  
             entry_username.delete(0, ctk.END)
             entry_password.delete(0, ctk.END)
-            root.destroy()
+            root.after(100, root.destroy)
         except Exception as e:
             print(f"Error during homepage switch: {e}")
     else:
@@ -50,11 +51,10 @@ def createaccount():
         entry_create_password.delete(0, ctk.END)
         entry_create_confirm_password.delete(0, ctk.END)
     else:
+        sql_commands.new_user(user,password,first_name,last_name,dob,gender,hostel,room_no,phone,emergency_phone,email)
         messagebox.showinfo('Success','Account created successfully.')
         switch_frame(login_frame)
 
-
-# Initialize the CustomTkinter main window
 ctk.set_appearance_mode("System")
 ctk.set_default_color_theme("blue")
 
@@ -62,6 +62,7 @@ root = ctk.CTk()
 root.title('Authentication Page')
 root.geometry("1200x800")
 root.configure(bg='lightgrey')
+root.attributes('-fullscreen',True)
 root.grid_rowconfigure(0, weight=1)
 root.grid_columnconfigure(0, weight=1)
 

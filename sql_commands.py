@@ -1,5 +1,4 @@
 # import mysql.connector as mysql
-
 # # Connect to MySQL
 # sql = mysql.connect(host='localhost', user='root', password='manager')
 # cursor = sql.cursor()
@@ -113,7 +112,7 @@ cursor.execute("""
         FOREIGN KEY (username) REFERENCES user_master(username))""")
 
 def new_user(uname, cred, fname, lname, dob, sex, hostel, roomno, phone, emergency, email):
-    # Check if the username exists
+ # Check if the username exists
     cursor.execute("SELECT username FROM user_master WHERE username = %s", (uname,))
     if cursor.fetchone() is None:
         # Insert the new user data
@@ -128,6 +127,50 @@ def new_user(uname, cred, fname, lname, dob, sex, hostel, roomno, phone, emergen
         return "New user created successfully with a default schedule!"
     else:
         return "User already exists."
+
+def login(uname, cred):
+    cursor.execute(f"SELECT username, credentials from user_master where username='{uname}'")
+    result=cursor.fetchone()
+    if result is not None:
+        if cred== result[1]:
+            return True
+        else:
+            return False
+    
+def vlx_sql_submitadd(item,selected,price,desc,timestamp):
+    insert_query = "INSERT INTO olx (item, category, price, description, timestamp) VALUES (%s, %s, %s, %s, %s)"
+    cursor.execute(insert_query, (item, selected, float(price), desc, timestamp))
+    sql.commit()
+
+def vlx_sql_submitsearch(item,selected):
+    search_query = "SELECT * FROM olx WHERE item LIKE %s AND category = %s"
+    cursor.execute(search_query, (f"%{item}%", selected))
+    results = cursor.fetchall()
+    return results
+def faq_qa():
+    cursor.execute("SELECT questions, answers FROM faq")
+    faqs = cursor.fetchall()
+    return faqs
+def contact_sql():
+    cursor.execute("SELECT hostel_type, title, name, email, phone FROM hostel_contacts")
+    contacts = cursor.fetchall()
+    return contacts
+def travel_submit(destination,date,time,transport,people):
+    query = "INSERT INTO travel_details (destination, travel_date, travel_time, transport, number_of_people) VALUES (%s, %s, %s, %s, %s)"
+    values = (destination, date, time, transport, int(people))
+    sql.commit()
+    return True
+def travel_check(destination,date):
+    query = "SELECT * FROM travel_details WHERE destination = %s AND travel_date = %s "
+    values = (destination, date)
+    results = cursor.fetchall()
+def forum_add(user,content):
+    cursor.execute("INSERT INTO forum (user, content) VALUES (%s, %s)", (user, content))
+    sql.commit() 
+def forum_update():
+    cursor.execute("SELECT user, content, timestamp FROM forum")
+    return cursor.fetchall()
+
 
 def add_to_schedule(uname,sdate,stime,edate,etime,category,description):
      # Add a default schedule for the new user
@@ -153,13 +196,6 @@ def display_schedule(username):
     else:
         print("No schedules found.")
 
-def login(uname, cred):
-    cursor.execute("SELECT username, credentials FROM user_master WHERE username = %s", (uname,))
-    result = cursor.fetchone()
-    if result is not None:
-        if cred == result[1]:
-            return True
-    return False
 
 # # Example usage
 # A = new_user('24BME0133', 'Arya@813', 'Swastik', 'Patnaik', '2006-08-17', 'M', 'Q', '1234', '1234567890', '7008976034', 'swasti.debesh2024@gmail.com', 

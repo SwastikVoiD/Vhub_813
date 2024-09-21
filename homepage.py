@@ -24,6 +24,8 @@ def homepage(a):
     root = ctk.CTk()
     root.title('Home Page')
     root.geometry("1200x800")
+    root.attributes('-fullscreen',True)
+
     root.grid_rowconfigure(0, weight=1)
     root.grid_columnconfigure(0, weight=1)
     
@@ -57,7 +59,7 @@ def homepage(a):
     services_button = ctk.CTkButton(button_frame, text="Services",command=services.service)
     services_button.pack(pady=10)
 
-    forums_button = ctk.CTkButton(button_frame, text="Forums",command=forum.forum(regno))
+    forums_button = ctk.CTkButton(button_frame, text="Forums",command=lambda:forum.forum(regno))
     forums_button.pack(pady=10)
 
     faq_button = ctk.CTkButton(button_frame, text="FAQ", command=faq.faq)
@@ -65,9 +67,6 @@ def homepage(a):
 
     contact_button = ctk.CTkButton(button_frame, text="Contact", command=contact.contact)
     contact_button.pack(pady=10)
-
-    home_button = ctk.CTkButton(button_frame, text="Home Button")
-    home_button.pack(pady=10)
 
     # Notice Board Section
     board_label = ctk.CTkLabel(main_content, text="Notice Board", font=("Arial", 30, 'bold'), fg_color='white', text_color='black')

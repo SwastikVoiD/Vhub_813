@@ -2,7 +2,7 @@ import customtkinter as ctk
 import time
 import faq
 import contact
-import services
+# import services
 import forum
 
 def update_time(current_time_label):

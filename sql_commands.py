@@ -1,6 +1,6 @@
-import mysql.connector as mysql
+import mysql.connector as smyql
 
-sql = mysql.connect(host='localhost',user='root',password='manager')
+sql = smyql.connect(host='localhost',user='root',password='abc+1234')
 cursor = sql.cursor()
 cursor.execute("CREATE DATABASE IF NOT EXISTS VHUB")
 cursor.execute("USE VHUB")
@@ -8,12 +8,14 @@ cursor.execute("CREATE TABLE IF NOT EXISTS user_master (username VARCHAR(9) PRIM
 # cursor.execute("CREATE TABLE IF NOT EXISTS Hevents_master (ETYPE CHAR(10), HOSTEL CHAR(1), EDEC CHAR(255), HBLOCK CHAR(2),  )")
 def new_user(uname, cred, fname, lname, dob, sex, hostel, roomno, phone, emergency, email):
     try:
+        
         # Check if the username exists
         cursor.execute("SELECT username FROM user_master WHERE username = %s", (uname,))
         if cursor.fetchone() is None:
+
             # Insert the new user data
             cursor.execute("INSERT INTO user_master (username, credentials, fname, lname, dob, sex, hostel, roomno, phone, emergency, email) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",(uname, cred, fname, lname, dob, sex, hostel, roomno, phone, emergency, email))
-            cursor.execute("CREATE TABLE %s_SCHEDULER (SDATE DATE, STIME TIME, EDATE DATE, ETIME TIME, CAT CHAR(10), DES CHAR(255), ORG CHAR(9) NOT NULL DEFAULT '%s'",(uname,uname))
+            cursor.execute("CREATE TABLE {}_SCHEDULER (SDATE DATE, STIME TIME, EDATE DATE, ETIME TIME, CAT CHAR(10), DES CHAR(255), ORG CHAR(9) NOT NULL DEFAULT '{}'".format(uname,uname))
             
             # cursor.execute("CREATE TABLE %s_TIME_TABLE (SLOT)")
             # cursor.execute("CREATE TABLE %s_ ")
@@ -22,7 +24,7 @@ def new_user(uname, cred, fname, lname, dob, sex, hostel, roomno, phone, emergen
         else:
             return("User already exists.")
 
-    except mysql.Error as err:
+    except smyql.Error as err:
         print("Error:", err)
 
 def login(uname, cred):

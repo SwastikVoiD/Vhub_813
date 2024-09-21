@@ -2,6 +2,7 @@ import customtkinter as ctk
 from tkinter import messagebox
 from PIL import Image, ImageTk
 import homepage
+import sql_commands
 
 def switch_frame(frame):
     frame.tkraise()
@@ -9,7 +10,7 @@ def switch_frame(frame):
 def check_password(event=None):
     user = entry_username.get()
     pwd = entry_password.get()
-    if user == 'hello' and pwd == 'abcd':
+    if sql_commands.login(user,pwd):
         try:
             homepage.homepage(user)  
             entry_username.delete(0, ctk.END)
@@ -50,6 +51,7 @@ def createaccount():
         entry_create_password.delete(0, ctk.END)
         entry_create_confirm_password.delete(0, ctk.END)
     else:
+        sql_commands.new_user(user,password,first_name,last_name,dob,gender,hostel,room_no,phone,emergency_phone,email)
         messagebox.showinfo('Success','Account created successfully.')
         switch_frame(login_frame)
 

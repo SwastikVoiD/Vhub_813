@@ -32,10 +32,10 @@ def check_password(event=None):
 def toggle_password(entry, button, is_visible):
     if is_visible:
         entry.configure(show='*')
-        button.configure(image=unhide_icon)  # Closed eye icon
+        button.configure(image=unhide_icon)
     else:
         entry.configure(show='')
-        button.configure(image=hide_icon)  # Open eye icon
+        button.configure(image=hide_icon)  
     return not is_visible
 
 def createaccount():
@@ -52,7 +52,6 @@ def createaccount():
     room_no = entry_room_no.get()
     emergency_phone = entry_emergency_phone.get()
 
-    # Check for empty fields
     if any(not field for field in [user, password, password_confirm, first_name, last_name, dob, gender, phone, email, hostel, room_no, emergency_phone]):
         messagebox.showinfo('Error', 'All fields must be filled out')
         return
@@ -65,7 +64,6 @@ def createaccount():
         sql_commands.new_user(user, password, first_name, last_name, dob, gender, hostel, room_no, phone, emergency_phone, email)
         messagebox.showinfo('Success', 'Account created successfully.')
         switch_frame(login_frame)
-
 
 root = ctk.CTk()
 root.title('Authentication Page')
@@ -81,7 +79,6 @@ unhide_icon = ctk.CTkImage(unhide_icon)
 hide_icon = Image.open("hide.png").resize((20, 20), Image.LANCZOS)
 hide_icon = ctk.CTkImage(hide_icon)
 
-# Frames
 login_frame = ctk.CTkFrame(root, fg_color='black')
 create_account_frame = ctk.CTkFrame(root, fg_color='black')
 page2_frame = ctk.CTkFrame(root, fg_color='black')
@@ -90,7 +87,6 @@ page3_frame = ctk.CTkFrame(root, fg_color='black')
 for frame in (login_frame, create_account_frame, page2_frame, page3_frame):
     frame.grid(row=0, column=0, sticky="nsew")
 
-# Login Frame
 main_label = ctk.CTkLabel(login_frame, text='LOGIN PAGE', fg_color='black', text_color='white', font=('Comic Sans MS', 24))
 main_label.pack(pady=30)
 
@@ -104,21 +100,15 @@ password_label.pack(pady=20)
 entry_password = ctk.CTkEntry(login_frame, show="*", width=300, font=('Comic Sans MS', 14))
 entry_password.pack(pady=5)
 
-# Toggle password visibility
-show_password_button = ctk.CTkButton(login_frame, text='', image=unhide_icon, 
-                                       command=lambda: toggle_password(entry_password, show_password_button, entry_password.cget('show') == ''), 
-                                       width=30, height=30, border_width=0)
+show_password_button = ctk.CTkButton(login_frame, text='', image=unhide_icon, command=lambda: toggle_password(entry_password, show_password_button, entry_password.cget('show') == ''), width=30, height=30, border_width=0)
 show_password_button.place(x=900, y=270)
 
 login_button = ctk.CTkButton(login_frame, text="Login", command=check_password, fg_color='black', font=('Comic Sans MS', 14), width=40, height=2)
 login_button.pack(pady=20)
 
-create_account_option_button = ctk.CTkButton(login_frame, text="Don't have an account? Create an account", 
-                                               command=lambda: switch_frame(create_account_frame), 
-                                               fg_color='black', font=('Comic Sans MS', 14), width=40, height=2, border_width=0)
+create_account_option_button = ctk.CTkButton(login_frame, text="Don't have an account? Create an account", command=lambda: switch_frame(create_account_frame), fg_color='black', font=('Comic Sans MS', 14), width=40, height=2, border_width=0)
 create_account_option_button.pack(pady=10)
 
-# Create Account Frame
 main_create_label = ctk.CTkLabel(create_account_frame, text='CREATE ACCOUNT', fg_color='black', text_color='white', font=('Comic Sans MS', 24))
 main_create_label.pack(pady=30)
 
@@ -132,10 +122,7 @@ password_create_label.pack(pady=20)
 entry_create_password = ctk.CTkEntry(create_account_frame, show="*", width=300, font=('Comic Sans MS', 14))
 entry_create_password.pack(pady=5)
 
-# Toggle password visibility for create account
-show_create_password_button = ctk.CTkButton(create_account_frame, text='', image=hide_icon, 
-                                              command=lambda: toggle_password(entry_create_password, show_create_password_button, entry_create_password.cget('show') == ''), 
-                                              width=30, height=30, border_width=0)
+show_create_password_button = ctk.CTkButton(create_account_frame, text='', image=hide_icon, command=lambda: toggle_password(entry_create_password, show_create_password_button, entry_create_password.cget('show') == ''), width=30, height=30, border_width=0)
 show_create_password_button.place(x=900, y=270)
 
 confirm_password_create_label = ctk.CTkLabel(create_account_frame, text='Confirm Password', fg_color='black', text_color='white', font=('Comic Sans MS', 14))
@@ -143,21 +130,15 @@ confirm_password_create_label.pack(pady=20)
 entry_create_confirm_password = ctk.CTkEntry(create_account_frame, show="*", width=300, font=('Comic Sans MS', 14))
 entry_create_confirm_password.pack(pady=5)
 
-# Toggle password visibility for confirm password
-show_create_confirm_password_button = ctk.CTkButton(create_account_frame, text='', image=hide_icon, 
-                                                      command=lambda: toggle_password(entry_create_confirm_password, show_create_confirm_password_button, entry_create_confirm_password.cget('show') == ''), 
-                                                      width=30, height=30, border_width=0)
+show_create_confirm_password_button = ctk.CTkButton(create_account_frame, text='', image=hide_icon, command=lambda: toggle_password(entry_create_confirm_password, show_create_confirm_password_button, entry_create_confirm_password.cget('show') == ''), width=30, height=30, border_width=0)
 show_create_confirm_password_button.place(x=900, y=375)
 
 nextpage_create_button = ctk.CTkButton(create_account_frame, text='Next Page', width=20, height=2, border_width=0, font=('Comic Sans MS', 14), command=lambda: switch_frame(page2_frame))
 nextpage_create_button.pack(pady=20)
 
-login_option_button = ctk.CTkButton(create_account_frame, text='Already have an account? Login', 
-                                      command=lambda: switch_frame(login_frame), 
-                                      fg_color='black', width=40, height=2, border_width=0, font=('Comic Sans MS', 14))
+login_option_button = ctk.CTkButton(create_account_frame, text='Already have an account? Login', command=lambda: switch_frame(login_frame), fg_color='black', width=40, height=2, border_width=0, font=('Comic Sans MS', 14))
 login_option_button.pack(pady=10)
 
-# Page 2 Frame (User Details)
 main_page2_label = ctk.CTkLabel(page2_frame, text='USER DETAILS', fg_color='black', text_color='white', font=('Comic Sans MS', 24))
 main_page2_label.pack(pady=30)
 
@@ -191,14 +172,12 @@ email_label.pack(pady=10)
 entry_email = ctk.CTkEntry(page2_frame, width=300, font=('Comic Sans MS', 14))
 entry_email.pack(pady=5)
 
-# Back button to return to the Create Account frame
 back_button = ctk.CTkButton(page2_frame, text='Back', command=lambda: switch_frame(create_account_frame), width=20, height=2, border_width=0, font=('Comic Sans MS', 14))
 back_button.pack(pady=20)
 
 submit_page2_button = ctk.CTkButton(page2_frame, text='Next Page', command=lambda: switch_frame(page3_frame), width=20, height=2, border_width=0, font=('Comic Sans MS', 14))
 submit_page2_button.pack()
 
-# Page 3 Frame (Hostel Information)
 main_page3_label = ctk.CTkLabel(page3_frame, text='HOSTEL DETAILS', fg_color='black', text_color='white', font=('Comic Sans MS', 24))
 main_page3_label.pack(pady=30)
 
@@ -223,6 +202,5 @@ submit_page3_button.pack(pady=20)
 back_to_page2_button = ctk.CTkButton(page3_frame, text='Back', command=lambda: switch_frame(page2_frame), width=20, height=2, border_width=0, font=('Comic Sans MS', 14))
 back_to_page2_button.pack(pady=10)
 
-# Start with the login frame
 switch_frame(login_frame)
 root.mainloop()

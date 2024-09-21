@@ -1,13 +1,12 @@
 import customtkinter as ctk
 import sql_commands
 def faq():
-    root = ctk.CTk()  # Use CustomTkinter's CTk instead of Tk
+    root = ctk.CTk() 
     root.title("FAQ")
     root.state('normal')
     root.geometry(f"{root.winfo_screenwidth()}x{root.winfo_screenheight()}+0+0")
     root.configure(fg_color='black')
 
-    # Fetch FAQs from the database
     qa = sql_commands.faq_qa()
 
     main_label = ctk.CTkLabel(root, text="Frequent Questions and Answers", text_color='lightblue', font=("Algerian", 25, "bold"))

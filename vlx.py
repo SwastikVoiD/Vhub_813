@@ -110,7 +110,6 @@ def vlx():
     ctk.CTkLabel(root, text="WELCOME TO VLX", text_color='white', font=('Algerian', 30)).grid(row=0, column=0, columnspan=2, pady=20)
     ctk.CTkButton(root, text="Back", command=root.destroy).place(x=10,y=10)
 
-
     root.grid_rowconfigure(1, weight=1)
     root.grid_columnconfigure(0, weight=1)
     root.grid_columnconfigure(1, weight=1)

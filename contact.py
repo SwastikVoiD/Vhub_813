@@ -15,15 +15,11 @@ def contact():
     scrollbar = ctk.CTkScrollbar(main_frame, orientation="vertical", command=canvas.yview)
     scrollable_frame = ctk.CTkFrame(canvas)
 
-    scrollable_frame.bind(
-        "<Configure>",
-        lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
-    )
+    scrollable_frame.bind("<Configure>",lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
 
     canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
     canvas.configure(yscrollcommand=scrollbar.set)
 
-    # Pack the canvas and scrollbar
     canvas.pack(side="left", fill="both", expand=True)
     scrollbar.pack(side="right", fill="y")
     try:

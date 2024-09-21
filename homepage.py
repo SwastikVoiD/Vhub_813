@@ -30,7 +30,6 @@ def homepage(a,b):
     root.grid_rowconfigure(0, weight=1)
     root.grid_columnconfigure(0, weight=1)
     
-
     button_frame = ctk.CTkFrame(root, fg_color='lightgrey')
     button_frame.pack(side=ctk.LEFT, fill=ctk.Y)
 
@@ -38,10 +37,8 @@ def homepage(a,b):
     main_content.pack(side=ctk.RIGHT, expand=True, fill=ctk.BOTH)
 
     ctk.CTkLabel(main_content, text="VHub", fg_color='white', text_color='black', width=10, height=2, font=('Helvetica', 40, 'bold')).pack(pady=(20, 0))
-
     ctk.CTkLabel(main_content, text="A Place to Connect", fg_color='white', text_color='black', width=10, height=2, font=('Helvetica', 30, 'bold')).pack(pady=(20, 0))
 
-    # Server Time
     server_time_label = ctk.CTkLabel(button_frame, text="Server Time:", fg_color='lightgrey', text_color='black', font=('Arial', 16))
     server_time_label.pack(pady=(15, 0))
 

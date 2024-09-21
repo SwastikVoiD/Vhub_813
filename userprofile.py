@@ -49,15 +49,14 @@ def change_details():
 
         ctk.CTkLabel(root2, text="Change User Details", font=("Arial", 20, "bold")).pack(pady=20)
 
-        # Existing user details
-        existing_full_name = f"{data[2]} {data[3]}"  # Assuming index 2 is fname and index 3 is lname
-        existing_dob = data[4]  # Date of Birth
-        existing_gender = data[5]  # Gender
-        existing_hostel = data[6]  # Hostel
-        existing_room = data[7]  # Room No.
-        existing_phone = data[8]  # Phone number
-        existing_emergency_phone = data[9]  # Emergency Phone No.
-        existing_email = data[10]  # Email ID
+        existing_full_name = f"{data[2]} {data[3]}" 
+        existing_dob = data[4] 
+        existing_gender = data[5] 
+        existing_hostel = data[6] 
+        existing_room = data[7]  
+        existing_phone = data[8]  
+        existing_emergency_phone = data[9]  
+        existing_email = data[10] 
 
         entry_name = ctk.CTkEntry(root2, placeholder_text="Full Name", width=300)
         entry_name.insert(0, existing_full_name)
@@ -104,7 +103,6 @@ def change_details():
 
         root2.mainloop()
     
-    # Password prompt window
     password_window = ctk.CTk()
     password_window.title("Confirm Password")
     password_window.geometry("300x200")

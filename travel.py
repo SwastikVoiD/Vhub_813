@@ -12,27 +12,22 @@ def travelpool():
     root.grid_rowconfigure(0, weight=1)
     root.grid_columnconfigure(0, weight=1)
 
-    # Travel Destination
     ctk.CTkLabel(root, text="Travel Destination", text_color='white', font=('Comic Sans MS', 24)).pack(pady=10)
     entry_location = ctk.CTkEntry(root, width=300, font=('Comic Sans MS', 14))
     entry_location.pack(pady=5)
 
-    # Travel Date
     ctk.CTkLabel(root, text="Travel Date", text_color='white', font=('Comic Sans MS', 24)).pack(pady=10)
     calendar = Calendar(root, selectmode='day', date_pattern='yyyy-mm-dd')
     calendar.pack(pady=5)
 
-    # Travel Time
     ctk.CTkLabel(root, text="Travel Time (HH:MM)", text_color='white', font=('Comic Sans MS', 24)).pack(pady=10)
     entry_time = ctk.CTkEntry(root, width=300, font=('Arial', 14))
     entry_time.pack(pady=5)
 
-    # Transport Medium
     ctk.CTkLabel(root, text="Transport Medium (e.g., Car, Bus)", text_color='white', font=('Comic Sans MS', 24)).pack(pady=10)
     entry_transport = ctk.CTkEntry(root, width=300, font=('Arial', 14))
     entry_transport.pack(pady=5)
 
-    # Number of People
     ctk.CTkLabel(root, text="Number of People", text_color='white', font=('Comic Sans MS', 24)).pack(pady=10)
     entry_people = ctk.CTkEntry(root, width=300, font=('Arial', 14))
     entry_people.pack(pady=5)
@@ -67,7 +62,6 @@ def travelpool():
         destination = entry_location.get()
         date = calendar.get_date()
 
-        # Validate inputs
         if not destination or not date:
             messagebox.showerror("Error", "Destination and Date must be filled to check for existing details.")
             return
@@ -82,7 +76,6 @@ def travelpool():
             messagebox.showerror("Error", f"{err}")
 
     def show_existing_entries(entries):
-        """Show a new window with the existing entries."""
         top = Toplevel(root)
         top.title("Existing Travel Entries")
         top.geometry("400x300")

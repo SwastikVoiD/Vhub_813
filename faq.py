@@ -3,6 +3,8 @@ import sql_commands
 def faq():
     root = ctk.CTk()  # Use CustomTkinter's CTk instead of Tk
     root.title("FAQ")
+    root.attributes('-fullscreen',True)
+
     root.geometry("1200x800")
     root.configure(fg_color='white')
 
@@ -18,5 +20,8 @@ def faq():
 
         answer_label = ctk.CTkLabel(root, text="Answer: " + answer, font=("Comic Sans MS", 12), text_color='black')
         answer_label.pack(anchor="w", pady=(0, 10))
+
+        back_button=ctk.CTkButton(root,text="Back",command=root.destroy)
+        back_button.pack(pady=5)
 
     root.mainloop()

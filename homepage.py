@@ -24,6 +24,8 @@ def homepage(a):
     root = ctk.CTk()
     root.title('Home Page')
     root.geometry("1200x800")
+    root.attributes('-fullscreen',True)
+
     root.grid_rowconfigure(0, weight=1)
     root.grid_columnconfigure(0, weight=1)
     

@@ -7,6 +7,8 @@ def travelpool():
     root = ctk.CTk()
     root.title("Travel Pool")
     root.geometry("800x600")
+    root.attributes('-fullscreen',True)
+
     root.configure(fg_color='white')
     root.grid_rowconfigure(0, weight=1)
     root.grid_columnconfigure(0, weight=1)
@@ -100,6 +102,8 @@ def travelpool():
     check_button = ctk.CTkButton(root, text="Check Existing Details", command=check_details)
     check_button.pack(pady=10)
 
-    root.mainloop()
+    back_button=ctk.CTkButton(root,text="Back",command=root.destroy)
+    back_button.place(x=10)
 
+    root.mainloop()
 

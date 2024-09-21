@@ -4,6 +4,7 @@ import customtkinter as ctk
 def contact():
     # Initialize the main window
     root = ctk.CTk()
+    root.attributes('-fullscreen',True)
     root.title("Hostel Contacts")
     root.geometry("800x600")
 
@@ -37,5 +38,7 @@ def contact():
             ctk.CTkLabel(scrollable_frame, text=phone).grid(row=idx, column=3, padx=5, pady=2, sticky='w')
     except Exception as err:
         print(f"Error: {err}")
+    back_button=ctk.CTkButton(root,text="Back",command=root.destroy)
+    back_button.pack(pady=5)
     root.mainloop()
 

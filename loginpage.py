@@ -10,9 +10,10 @@ def switch_frame(frame):
 def check_password(event=None):
     user = entry_username.get()
     pwd = entry_password.get()
+    email=sql_commands.getname(user,pwd)
     if sql_commands.login(user,pwd):
         try:
-            homepage.homepage(user)  
+            homepage.homepage(user,email)  
             entry_username.delete(0, ctk.END)
             entry_password.delete(0, ctk.END)
             root.after(100, root.destroy)

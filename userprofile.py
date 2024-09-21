@@ -152,5 +152,4 @@ def userprofile(regno, email):
         text.insert("end", "No data found or an error occurred.\n")
     
     root.mainloop()
-
-userprofile('24BIA0019','ritesh.chaudhary@example.com')
+ 

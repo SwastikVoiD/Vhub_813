@@ -3,9 +3,10 @@ import customtkinter as ctk
 
 def contact():
     root = ctk.CTk()
-    root.attributes('-fullscreen',True)
     root.title("Hostel Contacts")
-    root.geometry("800x600")
+    root.state('normal')
+    root.geometry(f"{root.winfo_screenwidth()}x{root.winfo_screenheight()}+0+0")
+    root.configure(fg_color='black')
 
     main_frame = ctk.CTkFrame(root)
     main_frame.pack(fill='both', expand=True)
@@ -14,15 +15,11 @@ def contact():
     scrollbar = ctk.CTkScrollbar(main_frame, orientation="vertical", command=canvas.yview)
     scrollable_frame = ctk.CTkFrame(canvas)
 
-    scrollable_frame.bind(
-        "<Configure>",
-        lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
-    )
+    scrollable_frame.bind("<Configure>",lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
 
     canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
     canvas.configure(yscrollcommand=scrollbar.set)
 
-    # Pack the canvas and scrollbar
     canvas.pack(side="left", fill="both", expand=True)
     scrollbar.pack(side="right", fill="y")
     try:
@@ -37,4 +34,3 @@ def contact():
     back_button=ctk.CTkButton(root,text="Back",command=root.destroy)
     back_button.pack(pady=5)
     root.mainloop()
-

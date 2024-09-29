@@ -2,3 +2,5 @@ Pillow==9.5.0
 CustomTkinter=5.2.2
 MySqlConnector-Python==9.0.0
 tkcalendar==1.6.1
+CustomTkinterMessagebox==0.0.4
+

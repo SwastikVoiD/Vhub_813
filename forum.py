@@ -25,13 +25,11 @@ def forum(regno):
 
     root = ctk.CTk()
     root.title("Forums")
-    root.attributes('-fullscreen',True)
-
-    root.configure(fg_color='white')
-    root.geometry("1200x800")
-    root.state('zoomed')
-
-    label = ctk.CTkLabel(root, text="Forum", font=("Comic Sans MS", 40, "bold"), text_color='black')
+    root.state('normal')
+    root.geometry(f"{root.winfo_screenwidth()}x{root.winfo_screenheight()}+0+0")
+    root.configure(fg_color='black')
+    
+    label = ctk.CTkLabel(root, text="Forum", font=("Comic Sans MS", 40, "bold"), text_color='white')
     label.pack(pady=20)
 
     textbox = ctk.CTkTextbox(root, width=800, height=600)
@@ -45,8 +43,7 @@ def forum(regno):
     add_button = ctk.CTkButton(root, text="Add Post", command=lambda: add_post(regno))
     add_button.place(x=900, y=190)
 
-    back_button=ctk.CTkButton(root,text="Back",command=root.destroy)
-    back_button.pack(pady=5)
+    ctk.CTkButton(root,text="Back",command=root.destroy).place(x=10,y=10)
     root.mainloop()
 
 
